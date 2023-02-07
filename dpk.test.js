@@ -1,5 +1,5 @@
 const { deterministicPartitionKey } = require("./dpk");
-const { newDeterministicPartitionKey } = require("./new-dpk");
+const { newDeterministicPartitionKey, candidateFromEvent } = require("./new-dpk");
 const event = {
   partitionKey: 'fdfdfd',
 }
@@ -55,5 +55,23 @@ describe("deterministicPartitionKey", () => {
   });
 });
 
+
+describe("candidateFromEvent", () => {
+  it("Returns the null when given null input", () => {
+    const trivialKey = candidateFromEvent(null);
+    expect(trivialKey).toBe(null);
+  });
+
+  it("Returns the same literal when given string input", () => {
+    const trivialKey = candidateFromEvent(event);
+    expect(trivialKey).toBe(event.partitionKey);
+  });
+
+  it("Returns the hast literal when given other format input", () => {
+    const trivialKey = candidateFromEvent(event.partitionKey);
+    expect(trivialKey).toBe("08dcb66217491aa6597ae11c4d76e6b205e51f3cfb20db7890a487952e63eb747c73f47f1009e71dc00b11e49a52aed038030d2bd0870be2a846a9a2f15beeee");
+  });
+
+});
 
 

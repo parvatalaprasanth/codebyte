@@ -13,3 +13,5 @@ Splited function into 2 parts so we can increase usability and replace old schoo
 for more readability
 
 Added code in new-dpk.js
+
+Added test cases to candidateFromEvent. So make it more logic safe

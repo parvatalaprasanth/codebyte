@@ -11,7 +11,7 @@ const candidateFromEvent = (event) => {
     return hashSHA3512(data);
 };
 
-exports.newDeterministicPartitionKey = (event) => {
+const newDeterministicPartitionKey = (event) => {
   let candidate = candidateFromEvent(event);
   if (candidate) {
     candidate = (typeof candidate !== "string") ? JSON.stringify(candidate) : candidate;
@@ -19,3 +19,9 @@ exports.newDeterministicPartitionKey = (event) => {
   candidate = candidate || TRIVIAL_PARTITION_KEY;
   return candidate.length > MAX_PARTITION_KEY_LENGTH ? hashSHA3512(candidate) : candidate;
 };
+
+module.exports = {
+    newDeterministicPartitionKey,
+    candidateFromEvent
+  };
+  
