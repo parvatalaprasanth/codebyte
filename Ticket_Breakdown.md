@@ -16,3 +16,33 @@ Based on the information given, break this ticket down into 2-5 individual ticke
 You will be graded on the level of detail in each ticket, the clarity of the execution plan within and between tickets, and the intelligibility of your language. You don't need to be a native English speaker, but please proof-read your work.
 
 ## Your Breakdown Here
+1. We already have an agents table, but it doesn't have the internal IDs of agents used by facilities.
+        So alter schema of agents table -> Add column custum agent ID.
+
+        Estimate: schema change + deploy in staging DB + verify changes + testing + move to prod + verify changes
+            1 - 2 days
+
+2. Make code changes in the backend + frontend to let Facilities add custum agent ID.
+
+         Estimate: code backend+ frontend -> deploy staging -> verify -> testing-> deploy prod -> verify
+           2 - 3 days
+
+2. Let send communication to all agents to Add custum agent id in the application.
+
+        Estimate: Send communication to all Facilities clients
+            Push notification to all Facilities 
+            1 day
+                        or
+            Script to send email or sms communication 
+            2 days
+
+3. Take advantage of the custum agent ID in the agents table to generate reports to populate the custum agent ID.
+
+        Estimate: Modify code in generate reports to include custum agent id
+        code backend+ frontend -> deploy staging -> verify -> testing-> deploy prod -> verify
+               1 - 2 days
+
+
+Note: We can even combine 1 and 2.
+
+

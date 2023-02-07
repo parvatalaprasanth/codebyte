@@ -9,5 +9,7 @@ You've been asked to refactor the function `deterministicPartitionKey` in [`dpk.
 You will be graded on the exhaustiveness and quality of your unit tests, the depth of your refactor, and the level of insight into your thought process provided by the written explanation.
 
 ## Your Explanation Here
-Splited function into 2 parts so we can increase usability and replace old school java script with ES6 
-for  more redability
+Splited function into 2 parts so we can increase usability and replace old school java script with ES6
+for more readability
+
+Added code in new-dpk.js
